@@ -1,0 +1,1 @@
+<a class="btn btn-primary" href="{{route('reset-password', $token)}}">Reset password</a>

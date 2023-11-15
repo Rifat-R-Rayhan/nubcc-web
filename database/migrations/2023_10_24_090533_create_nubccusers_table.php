@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('nubccusers', function (Blueprint $table) {
+            $table->id();
+            $table->string('username')->nullable();
+            $table->string('program')->nullable();
+            $table->bigInteger('student_id')->nullable();
+            $table->string('semester')->nullable();
+            $table->string('section')->nullable();
+            $table->string('email')->nullable()->default(1);
+            $table->string('password')->nullable();
+            $table->integer('contact')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('present_address')->nullable();
+            $table->string('permanent_address')->nullable();
+            $table->string('professional_skill')->nullable();
+            $table->string('interest')->nullable();
+            $table->string('goal')->nullable();
+            $table->string('leadership')->nullable();
+            $table->string('image')->nullable();
+            $table->string('trans_id')->nullable();
+            $table->tinyInteger('is_active')->default(1);
+            $table->timestamp('change_status_at')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('nubccusers');
+    }
+};
