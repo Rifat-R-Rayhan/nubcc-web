@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cr;
 use App\Models\Nubccuser;
 use App\Models\Member;
 use Illuminate\Http\Request;
@@ -29,6 +30,11 @@ class UserController extends Controller
     function fullTeamPage(){
         $members = Member::all();
         return view('client/pages/full-team', compact('members'));
+    }
+
+    function fullCrPage(){
+        $crs = Cr::all();
+        return view('client/pages/cr-team', compact('crs'));
     }
 
     function eventPage(){
@@ -61,6 +67,10 @@ class UserController extends Controller
 
     function memberRegistration(){
         return view('client/pages/addMember');
+    }
+
+    function crRegistration(){
+        return view('client/pages/cr');
     }
 
 
@@ -267,6 +277,36 @@ class UserController extends Controller
         }
 
         $result = $member->save();
+
+        if($result){
+            return back()->with('success', 'Congrats!!! You have registered successfully.');
+        }
+        else{
+            return back()->with('fail', 'Error!!! Something wrong.');
+        }
+    }
+
+
+
+    function crInsert(Request $request){
+        $cr = new Cr;
+        $cr->cr_name = $request->cr_name;
+        $cr->email = $request->email;
+        $cr->mobile = $request->mobile;
+        $cr->fb_link = $request->fb_link;
+        $cr->student_id = $request->student_id;
+        $cr->program = $request->program;
+        $cr->semester = $request->semester;
+        $cr->section = $request->section;
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $filename = uniqid().'_'. $cr->cr_name;
+            $file->move('uploads/images/crs', $filename);
+            $cr->image = $filename;
+        }
+
+        $result = $cr->save();
 
         if($result){
             return back()->with('success', 'Congrats!!! You have registered successfully.');

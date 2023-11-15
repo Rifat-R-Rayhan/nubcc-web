@@ -116,7 +116,6 @@
                     <li><a href="{{'../'}}">Home</a></li>
                     <li><a href="{{'about-us'}}">About</a></li>
                     <li><a href="{{'event'}}">Events</a></li>
-                    <li><a href="{{'team'}}">Team</a></li>
                     <li><a href="{{'album'}}">Albums</a></li>
 
                     <li class="dropdown"><a href="{{ 'courses' }}"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
@@ -152,7 +151,13 @@
                            
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="{{ 'courses' }}"><span>Faculty & Alumni</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#"><span>Team</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{'team'}}">Members</a></li>
+                            <li><a href="{{'cr_list'}}">CR</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#"><span>Faculty & Alumni</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://nub.ac.bd/nub/memberlist/t05oqo1z/computer-science-&-engineering?fbclid=IwAR13LlvOJhc_L6pqiQq4N-nYiqwDGgVnkrNk5NHcFqrhE5GCiqNqcD6bH4Y">Faculties</a></li>
                             <li><a href="https://alumni.nub.ac.bd/welcome/general">Alumni</a></li>

@@ -9,6 +9,7 @@ use App\Models\Nubccuser;
 use App\Models\Shirt;
 use App\Models\User;
 use App\Exports\ShirtsExport;
+use App\Models\Cr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -156,7 +157,6 @@ class AdminController extends Controller
 
     public function memberUpdate(Request $request)
     {
-        // dd($request->id);
         $member = Member::find($request->id);
         $member->member_name = $request->member_name;
         $member->designation = $request->designation;
@@ -368,5 +368,98 @@ class AdminController extends Controller
     function load_test(){
 
         return view('test');
+    }
+
+
+    // **** CR ****
+
+    function crsTable(){
+        $crs = Cr::all();
+        return view('server/pages/crsTable', compact('crs'));
+    }
+
+
+    function crInsert(Request $request){
+        $cr = new Cr;
+        $cr->cr_name = $request->cr_name;
+        $cr->email = $request->email;
+        $cr->mobile = $request->mobile;
+        $cr->fb_link = $request->fb_link;
+        $cr->student_id = $request->student_id;
+        $cr->program = $request->program;
+        $cr->semester = $request->semester;
+        $cr->section = $request->section;
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $filename = uniqid().'_'. $cr->cr_name;
+            $file->move('uploads/images/crs', $filename);
+            $cr->image = $filename;
+        }
+
+        $result = $cr->save();
+
+        if($result){
+            return back()->with('success', 'Congrats!!! You have registered successfully.');
+        }
+        else{
+            return back()->with('fail', 'Error!!! Something wrong.');
+        }
+    }
+
+    
+    public function crDelete(Request $request){
+        $cr = Cr::find($request->id);
+        $image_path = public_path('uploads/images/crs/'.$cr->image);
+        if(file_exists($image_path)) {
+            unlink($image_path);
+        }
+        $cr->delete();
+        return redirect('/crs');
+    }
+
+    public function crEdit(Request $request)
+    {
+        $editData = Cr::find($request->id); 
+        return view('server/pages/crEdit', compact('editData'));
+    }
+
+    public function crUpdate(Request $request)
+    {
+        $cr = Cr::find($request->id);
+        $cr->cr_name = $request->cr_name;
+        $cr->email = $request->email;
+        $cr->mobile = $request->mobile;
+        $cr->fb_link = $request->fb_link;
+        $cr->student_id = $request->student_id;
+        $cr->program = $request->program;
+        $cr->semester = $request->semester;
+        $cr->section = $request->section;
+        
+        if($request->hasFile('newimage')){
+            $destination = public_path('uploads/images/crs/' . $request->oldimage);
+            // dd($destination);
+            if(file_exists($destination))
+            {
+                unlink($destination);
+            }
+            $file = $request->file('newimage');
+            $filename = uniqid().'_update_'. $cr->cr_name;
+            $file->move('uploads/images/crs', $filename);
+            $cr->image = $filename;
+        }
+        
+        $cr->update();
+        return redirect('/crs');
+    }
+
+    public function crConfirmation(Request $request)
+    {
+        $cr = Cr::find($request->id);
+        $cr->is_active = 2;
+    
+        $cr->update();
+
+        return redirect('/crs');
     }
 }

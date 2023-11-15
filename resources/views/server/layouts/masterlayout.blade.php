@@ -156,7 +156,7 @@
                         </ul>
                     </li>
                     <!-- Components -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Commitee Members</span></li>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Members & CR</span></li>
                     <!-- Cards -->
                     <li class="menu-item">
                         <a href="{{'members'}}" class="menu-link">
@@ -165,11 +165,12 @@
                         </a>
                     </li>
 
-
-
-
-
-
+                    <li class="menu-item">
+                        <a href="{{'crs'}}" class="menu-link">
+                            <i class="fa-solid fa-arrows-down-to-people me-2"></i>
+                            <div data-i18n="Basic">CR</div>
+                        </a>
+                    </li>
 
 
                     <!-- Components -->

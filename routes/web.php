@@ -10,6 +10,7 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/about-us', 'aboutPage')->name('about-us');
     Route::get('/contact', 'contactPage')->name('contact');
     Route::get('/team', 'fullTeamPage')->name('team');
+    Route::get('/cr_list', 'fullCrPage')->name('cr_list');
     Route::get('/event', 'eventPage')->name('event');
     Route::get('/album', 'galleryPage')->name('album');
     Route::get('/courses', 'coursePage')->name('courses');
@@ -28,6 +29,9 @@ Route::controller(UserController::class)->group(function(){
 
     Route::get('/member_registration', 'memberRegistration')->name('member');
     Route::post('/member_registration', 'memberInsert')->name('member_registration');
+
+    Route::get('/cr_registration', 'crRegistration')->name('cr');
+    Route::post('/cr_registration', 'crInsert')->name('cr_registration');
 
     Route::get('/forgot-password', 'forgotPassword')->name('forgot-password');
     Route::post('/forgot-user-password', 'forgotUserPassword')->name('forgot-user-password');
@@ -51,6 +55,13 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/medit', 'memberEdit')->name('member_edit')->middleware('isLoggedIn');
     Route::post('/mupdate', 'memberUpdate')->name('member_update')->middleware('isLoggedIn');
     Route::post('/mconfirmation', 'memberConfirmation')->name('member_confirmation')->middleware('isLoggedIn');
+
+    Route::get('/crs', 'crsTable')->name('crs')->middleware('isLoggedIn');
+    Route::post('/crs', 'crInsert')->name('cr_insert')->middleware('isLoggedIn');
+    Route::get('/cdelete', 'crDelete')->name('cr_delete')->middleware('isLoggedIn');
+    Route::get('/cedit', 'crEdit')->name('cr_edit')->middleware('isLoggedIn');
+    Route::post('/crupdate', 'crUpdate')->name('cr_update')->middleware('isLoggedIn');
+    Route::post('/crconfirmation', 'crConfirmation')->name('cr_confirmation')->middleware('isLoggedIn');
 
     Route::get('/login', 'login')->name('login')->middleware('alreadyLogin');
     Route::post('/loginUser', 'loginCheck')->name('loginUser');

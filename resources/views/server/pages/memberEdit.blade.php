@@ -65,6 +65,18 @@
 
                                         </div>
 
+                                        <div class="row g-2">
+                                            <div class="col mb-0">
+                                                <label for="emailWithTitle" class="form-label">Program</label>
+                                                <select id="program" class="form-select" aria-label="Default select example" name="program">                                
+                                                    <option value="{{$editData->program}}" selected>{{$editData->program}}</option>
+                                                    <option value="CSE-Day">CSE-Day</option>
+                                                    <option value="CSE-Evening">CSE-Evening</option>
+                                                </select>
+                                            </div>
+    
+                                        </div>
+
 
                                         <div class="row g-2">
                                         <div class="col mb-0">
