@@ -51,6 +51,7 @@ Route::controller(AdminController::class)->group(function(){
 
     Route::get('/members', 'membersTable')->name('members')->middleware('isLoggedIn');
     Route::post('/members', 'memberInsert')->name('member_insert')->middleware('isLoggedIn');
+    Route::get('/msearch', 'memberSearch')->name('member_search');
     Route::get('/mdelete', 'memberDelete')->name('member_delete')->middleware('isLoggedIn');
     Route::get('/medit', 'memberEdit')->name('member_edit')->middleware('isLoggedIn');
     Route::post('/mupdate', 'memberUpdate')->name('member_update')->middleware('isLoggedIn');
@@ -58,6 +59,7 @@ Route::controller(AdminController::class)->group(function(){
 
     Route::get('/crs', 'crsTable')->name('crs')->middleware('isLoggedIn');
     Route::post('/crs', 'crInsert')->name('cr_insert')->middleware('isLoggedIn');
+    Route::get('/csearch', 'crSearch')->name('cr_search');
     Route::get('/cdelete', 'crDelete')->name('cr_delete')->middleware('isLoggedIn');
     Route::get('/cedit', 'crEdit')->name('cr_edit')->middleware('isLoggedIn');
     Route::post('/crupdate', 'crUpdate')->name('cr_update')->middleware('isLoggedIn');

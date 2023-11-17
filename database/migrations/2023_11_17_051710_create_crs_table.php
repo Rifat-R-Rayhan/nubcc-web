@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('fb_link')->nullable();
             $table->bigInteger('student_id')->nullable();
             $table->string('program')->nullable();
-            $table->integer('semester')->nullable();
+            $table->string('semester')->nullable();
             $table->string('section')->nullable();
             $table->string('image')->nullable();
             $table->tinyInteger('is_active')->default(1);

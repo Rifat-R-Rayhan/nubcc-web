@@ -6,6 +6,32 @@
 <div class="content-wrapper">
     <!-- Content -->
 
+    <!-- Search field -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="mb-3">User Search Results</h5>
+
+            <form action="{{route('member_search')}}" method="get">
+                @csrf
+                <div class="input-group mb-3">
+                    <div class="form-group-feedback form-group-feedback-left">
+                        <input type="search" name="search" class="form-control form-control-lg" placeholder="Search by Student ID or Name">
+                        <div class="form-control-feedback form-control-feedback-lg">
+                            <i class="icon-search4 text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group-append ms-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    </div>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+    <!-- /search field -->
+
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">member /</span> members Table</h4>
 

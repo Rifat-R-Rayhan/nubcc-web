@@ -135,22 +135,26 @@
                                     <div class="row g-2">
                                         <div class="col mb-0">
                                             <label for="emailWithTitle" class="form-label">Semester</label>
-                                            <select id="program" class="form-select" name="semester" aria-label="Default select example" name="semester" required>                                
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
+                                            <select id="program" class="form-select" aria-label="Default select example" name="semester" required>                                
+                                                <option value="Spring {{2000+ (date('y')-4)}}">Spring {{2000+ (date('y')-4)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-4)}}">Fall {{2000+ (date('y')-4)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-4)}}">Summer {{2000+ (date('y')-4)}}</option>
+                                                <option value="Spring {{2000+ (date('y')-3)}}">Spring {{2000+ (date('y')-3)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-3)}}">Fall {{2000+ (date('y')-3)}}</option>
+                                                <option value="Summer {{date('y')-3}}">Summer {{2000+ (date('y')-3)}}</option>
+                                                <option value="Spring {{date('y')-2}}">Spring {{2000+ (date('y')-2)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-2)}}">Fall {{2000+ (date('y')-2)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-2)}}">Summer {{2000+ (date('y')-2)}}</option>
+                                                <option value="Spring {{2000+ (date('y')-1)}}">Spring {{2000+ (date('y')-1)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-1)}}">Fall {{2000+ (date('y')-1)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-1)}}">Summer {{2000+ (date('y')-1)}}</option>
+                                                <option value="Spring {{2000+ date('y') }}">Spring {{2000+ date('y') }}</option>
+                                                <option value="Fall {{2000+ date('y') }}">Fall {{2000+ date('y') }}</option>
+                                                <option value="Summer {{2000+ date('y') }}">Summer {{2000+ date('y') }}</option>
+                                                <option value="Spring {{2000+ (date('y')+1) }}">Spring {{ 2000+ (date('y')+1) }}</option>
                                             </select>
                                         </div>
-            
+
                                     </div>
             
                                     <div class="row g-2">

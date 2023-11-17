@@ -6,6 +6,32 @@
 <div class="content-wrapper">
     <!-- Content -->
 
+    <!-- Search field -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-3">User Search Results</h5>
+        
+                                <form action="{{route('cr_search')}}" method="get">
+                                    @csrf
+                                    <div class="input-group mb-3">
+                                        <div class="form-group-feedback form-group-feedback-left">
+                                            <input type="search" name="search" class="form-control form-control-lg" placeholder="Search by Student ID or Name">
+                                            <div class="form-control-feedback form-control-feedback-lg">
+                                                <i class="icon-search4 text-muted"></i>
+                                            </div>
+                                        </div>
+        
+                                        <div class="input-group-append ms-2">
+                                            <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                                        </div>
+                                    </div>
+        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /search field -->
+
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">CR /</span> CR's Table</h4>
 
@@ -85,22 +111,26 @@
                                     <div class="row g-2">
                                         <div class="col mb-0">
                                             <label for="emailWithTitle" class="form-label">Semester</label>
-                                            <select id="program" class="form-select" name="semester" aria-label="Default select example" name="semester" required>                                
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
+                                            <select id="program" class="form-select" aria-label="Default select example" name="semester" required>                                
+                                                <option value="Spring {{2000+ (date('y')-4)}}">Spring {{2000+ (date('y')-4)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-4)}}">Fall {{2000+ (date('y')-4)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-4)}}">Summer {{2000+ (date('y')-4)}}</option>
+                                                <option value="Spring {{2000+ (date('y')-3)}}">Spring {{2000+ (date('y')-3)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-3)}}">Fall {{2000+ (date('y')-3)}}</option>
+                                                <option value="Summer {{date('y')-3}}">Summer {{2000+ (date('y')-3)}}</option>
+                                                <option value="Spring {{date('y')-2}}">Spring {{2000+ (date('y')-2)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-2)}}">Fall {{2000+ (date('y')-2)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-2)}}">Summer {{2000+ (date('y')-2)}}</option>
+                                                <option value="Spring {{2000+ (date('y')-1)}}">Spring {{2000+ (date('y')-1)}}</option>
+                                                <option value="Fall {{2000+ (date('y')-1)}}">Fall {{2000+ (date('y')-1)}}</option>
+                                                <option value="Summer {{2000+ (date('y')-1)}}">Summer {{2000+ (date('y')-1)}}</option>
+                                                <option value="Spring {{2000+ date('y') }}">Spring {{2000+ date('y') }}</option>
+                                                <option value="Fall {{2000+ date('y') }}">Fall {{2000+ date('y') }}</option>
+                                                <option value="Summer {{2000+ date('y') }}">Summer {{2000+ date('y') }}</option>
+                                                <option value="Spring {{2000+ (date('y')+1) }}">Spring {{ 2000+ (date('y')+1) }}</option>
                                             </select>
                                         </div>
-            
+
                                     </div>
             
                                     <div class="row g-2">

@@ -195,6 +195,13 @@ class AdminController extends Controller
         return redirect('/members');
     }
 
+    public function memberSearch(Request $request){
+        
+        $search = $request->search;
+        $members = Member::where('student_id','like','%'.$search.'%')->orWhere('member_name','like','%'.$search.'%')->get();
+        return view('server/pages/membersTable', compact('members'));
+    }
+
     // *************End Members
 
 
@@ -461,5 +468,12 @@ class AdminController extends Controller
         $cr->update();
 
         return redirect('/crs');
+    }
+
+    public function crSearch(Request $request){
+        
+        $search = $request->search;
+        $crs = Cr::where('student_id','like','%'.$search.'%')->orWhere('cr_name','like','%'.$search.'%')->get();
+        return view('server/pages/crsTable', compact('crs'));
     }
 }
